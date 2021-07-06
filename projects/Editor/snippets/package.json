@@ -1,0 +1,25 @@
+{
+    "name": "snippets",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {},
+    "author": "Gurigraphics",
+    "license": "ISC",
+    "dependencies": {},
+    "plurality": {
+        "files": [
+            "snippets.json"
+        ],
+        "modules": [],
+        "p0": {
+            "snippets.json": []
+        },
+        "p1": {},
+        "p2": {},
+        "p3": {},
+        "all": {
+            "snippets.json": 1
+        }
+    }
+}

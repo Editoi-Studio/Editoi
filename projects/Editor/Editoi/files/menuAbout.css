@@ -1,0 +1,40 @@
+.menuAbout_top{  
+  margin-right: 22px;
+  margin-top: 42px;
+  background: var(--blue-2);
+  
+}
+
+.menuAbout{
+  position: absolute;
+  background: var(--blue-2);
+  border: 5px solid var(--blue-3);
+  width: 460px;
+  height: 260px;
+  left: calc( 50vw - 320px / 2 );
+  top: calc( 50vh - 240px / 2 ); 
+  
+  color: white;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns:  1fr;
+  z-index: 1000;
+}
+
+.checking{
+  color: #d2a61d;
+}
+
+#updatesIcon{
+  margin-top: 4px;
+  margin-left: 8px;
+  position: absolute;
+  -webkit-animation: spin 1s infinite linear;
+  color: #d2a61d;
+}
+
+@-webkit-keyframes spin {
+    0%   {-webkit-transform: rotate(0deg)}
+    100% {-webkit-transform: rotate(360deg)}
+}

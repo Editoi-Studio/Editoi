@@ -1,0 +1,21 @@
+{
+  "name": "editoi",
+  "short_name": "Modular editor",
+  "version": "1.0.1",
+  "manifest_version": 2,
+  "chromium-args": "--data-path='./saves/' --disable-transparency --disable-gpu-vsync --disable-features=nw2", 
+  "icons": 
+    {
+        "70": "images/mstile-70x70.png",		
+		"128": "images/icon-128x128.png",
+		"150": "images/mstile-150x150.png",
+		"152": "images/apple-touch-icon-152x152.png",
+		"192": "images/android-chrome-192x192.png",
+		"512": "images/android-chrome-512x512.png"
+    },  
+  
+  "start_url": "index.html?homescreen=1",
+  "display": "standalone",
+  "background_color": "#3E4EB8",
+  "theme_color": "#2F3BA2"
+}

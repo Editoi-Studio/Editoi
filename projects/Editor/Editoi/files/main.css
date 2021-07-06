@@ -1,0 +1,23 @@
+.main{  
+  margin: 5px;
+  height: calc( 100vh - 10px);  
+  display: grid;
+  grid-gap: 5px; 
+  grid-template-columns: 1fr;
+  grid-template-rows: 64px 1fr; 
+}
+
+.main_bottom{
+  display: grid;
+  grid-gap: 5px; 
+  grid-template-columns: 190px 1fr;
+  grid-template-rows: 1fr; 
+}
+
+.main_bottomLeft{
+  
+}
+
+.main_bottomRight{  
+ 
+}

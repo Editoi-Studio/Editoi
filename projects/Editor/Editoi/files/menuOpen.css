@@ -1,0 +1,14 @@
+.menuOpen{
+  position: absolute;
+  width: 300px;
+  height: 110px;
+  margin-top: 72px;
+  margin-left: -162px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  
+  grid-gap: 2px;
+  padding: 16px;
+  background: var(--blue-2);
+}

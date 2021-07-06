@@ -1,0 +1,18 @@
+.menuOptions{
+  position: absolute;
+  background: var(--blue-2);
+  border: 5px solid var(--blue-3);
+  width: 460px;
+  height: 260px;
+  left: calc( 50vw - 320px / 2 );
+  top: calc( 50vh - 240px / 2 ); 
+
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns:  1fr;
+  z-index: 1000;
+}
+
+.color{
+  float: left;  
+}

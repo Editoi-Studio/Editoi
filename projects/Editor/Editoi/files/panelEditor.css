@@ -1,0 +1,64 @@
+.panelEditor{
+  background: var(--blue-2);
+  max-width: 100%;
+  width: calc( 100vw + 72px - 268px - 8px  ) !important;
+}
+
+#editor{
+  overflow: scroll;
+  height: 100%;
+  padding-left: 10px;  
+  background: var(--blue-2);
+  font-family: 'Ubuntu Mono', monospace !important;
+  font-size: 13px !important;   
+}
+
+.CodeMirror {
+  height: calc( 100vh + 72px - 268px - 64px) !important;
+  max-width: calc( 100vw + 72px - 268px - 14px) !important;
+}
+
+.CodeMirror-vscrollbar{
+   outline:none;  
+}
+
+.CodeMirror-gutter { 
+  height: 110%;
+  width: 18px  !important;     
+}   
+
+.CodeMirror-gutter-elt {   
+  margin-left: 0px;     
+
+}  
+
+.CodeMirror-foldgutter-open {  
+  margin-left: 10px;     
+     
+}  
+
+.CodeMirror-foldgutter-folded {     
+  margin-left: 10px;    
+}  
+ 
+.CodeMirror {  
+  height: calc( 100vh - 262px ) !important;
+
+  border: 0px solid var(--dark);
+  border-right: 0px solid var(--blue-0);
+
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: var(--font);
+  letter-spacing: 1px; 
+}
+
+.CodeMirror ::-webkit-scrollbar {
+  width: 24px;
+  background-color: var(--dark); /* #151925; */ 
+} 
+
+.CodeMirror ::-webkit-scrollbar-thumb {
+  background-color: var(--blue-3);
+  border: 1px solid var(--dark);  
+  border-radius: 0px;
+}

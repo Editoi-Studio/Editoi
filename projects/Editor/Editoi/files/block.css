@@ -1,0 +1,43 @@
+.block{  
+  height: 24px;
+  cursor: pointer;
+}
+
+.block-placeholder{
+  background: var(--dark); 
+  height: 24px;  
+  border: none;  
+  resize: none;
+} 
+
+.folder{
+  background: var( --yellow ) !important;  
+  border: solid 0px var( --yellow-selected ) !important;
+}
+
+.folder-over{
+  background: var( --yellow-over ) !important;  
+  border: solid 0px var( --yellow-selected ) !important;
+}
+
+.folder-selected{
+  background: var( --yellow-over ) !important; 
+  border: solid 1px var( --yellow-selected ) !important;
+  height: 24px;
+}
+
+.file{
+  background: var( --box-0 );
+  border: 0px solid var( --border-select ) !important;
+}
+
+.file-over{ 
+  background: var( --box-1 );
+  border: 0px solid var( --border-select ) !important;
+}
+
+.file-selected{ 
+  background: var( --box-1 ) !important;
+  border: 1px solid var( --border-select ) !important;
+  height: 24px;
+}

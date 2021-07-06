@@ -1,0 +1,45 @@
+{
+    "name": "rust_example",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {},
+    "author": "Gurigraphics",
+    "license": "ISC",
+    "dependencies": {},
+    "plurality": {
+        "files": [
+            "file.rs",
+            "run.bat"
+        ],
+        "modules": [],
+        "p0": {
+            "file.rs": [
+                "use.rs",
+                "hello.rs",
+                "read.rs",
+                "parse_int.rs",
+                "main.rs"
+            ],
+            "run.bat": []
+        },
+        "p1": {
+            "hello.rs": [],
+            "main.rs": [],
+            "use.rs": [],
+            "read.rs": [],
+            "parse_int.rs": []
+        },
+        "p2": {},
+        "p3": {},
+        "all": {
+            "file.rs": 0,
+            "run.bat": 1,
+            "hello.rs": 1,
+            "main.rs": 1,
+            "use.rs": 1,
+            "read.rs": 1,
+            "parse_int.rs": 1
+        }
+    }
+}

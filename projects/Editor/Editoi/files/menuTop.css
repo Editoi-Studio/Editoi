@@ -1,0 +1,38 @@
+.menuTop{
+  background: var(--blue-2);
+  height: 64px;
+  
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.menuTop_top{
+  
+ background: var(--blue-2);
+  
+}
+
+.menuTop_bottom{
+  float: left
+}
+
+.input{
+  color: var(--white);
+  background: var(--dark);
+  border: 0;
+  font-size: 12px;
+  padding: 6px;
+  height: 18px;
+  width: 100%;
+  display: block;
+  outline: none;
+}
+
+.select{
+  width: 100%;
+  color: var( --white );
+  outline: none; 
+  font-size: 11px; 
+  cursor: pointer;
+}

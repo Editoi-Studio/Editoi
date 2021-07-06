@@ -1,0 +1,28 @@
+{
+    "name": "editoi",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {},
+    "author": "Gurigraphics",
+    "license": "ISC",
+    "dependencies": {},
+    "plurality": {
+        "files": [
+            "editoi.md"
+        ],
+        "modules": [],
+        "p0": {
+            "editoi.md": []
+        },
+        "p1": {},
+        "p2": {},
+        "p3": {},
+        "all": {
+            "editoi.md": 1
+        },
+        "fileDisabled": [
+            "editoi.md"
+        ]
+    }
+}

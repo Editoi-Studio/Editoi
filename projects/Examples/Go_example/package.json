@@ -1,0 +1,45 @@
+{
+    "name": "Go_example",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {},
+    "author": "Gurigraphics",
+    "license": "ISC",
+    "dependencies": {},
+    "plurality": {
+        "files": [
+            "file.go",
+            "run.bat"
+        ],
+        "modules": [],
+        "p0": {
+            "file.go": [
+                "import.go",
+                "prints.go",
+                "parse_int.go",
+                "parse_str.go",
+                "main.go"
+            ],
+            "run.bat": []
+        },
+        "p1": {
+            "import.go": [],
+            "prints.go": [],
+            "parse_int.go": [],
+            "parse_str.go": [],
+            "main.go": []
+        },
+        "p2": {},
+        "p3": {},
+        "all": {
+            "file.go": 0,
+            "run.bat": 1,
+            "import.go": 1,
+            "prints.go": 1,
+            "parse_int.go": 1,
+            "parse_str.go": 1,
+            "main.go": 1
+        }
+    }
+}

@@ -1,0 +1,26 @@
+[
+  {"f": "FN.name = function(){\n\n}"},
+  
+  {"gc": "Game.create[''] = function(){\n\n}"},
+   
+  
+  {"h": "<!DOCTYPE html>\n<html lang='en'>\n  <head>\n    <meta name='viewport' content='width=device-width, initial-scale=1' />\n    <meta charset='utf-8'>\n    <title>Title</title>\n    <link rel='stylesheet' href='style.css'>\n  </head>\n  <body>\n    <div id='root'></div>\n    <script src='main.js'></script>\n  </body>\n</html>"},
+  
+  {"st": "<link rel='stylesheet' href='style.css'>"},
+  
+  {"sc": "<script src='script.js'></script>"},
+  
+  {"log": "const log = val => console.log( val )"},
+  
+  {"get": "const get = val => document.querySelector( val )"},  
+  
+  {"loren": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."},
+  
+  {"jq": "<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>"},
+  
+  {"grid": "display: grid;\n grid-template-columns: 1fr;\n grid-template-rows: 1fr;"},
+  
+  {"*": "*{\n  padding: 0px;\n  margin: 0px;\n  outline: none;\n  box-sizing: border-box;\n}"},
+  
+  {"1": "123"}
+]

@@ -1,0 +1,24 @@
+:root{
+  --dark: #0E1215; 
+  --white: #ffffff;  
+
+  --box-0: #1C2125; 
+  --box-1: #2C374B;
+
+  --blue-2: #151925;  
+  --blue-3: #242844; 
+  
+  
+  --yellow: #232221;
+  --yellow-over: #3c3632;
+  --yellow-selected: #6f6051;
+  
+  --border-select: #6680ff;   
+  
+  --roxo: #a06ae2;
+  --yellow-2: #b7c360;
+  
+  --brown: #999;
+  
+  --font: 13px;
+}

@@ -1,0 +1,41 @@
+/* Based on Sublime Text's guri theme */
+
+.cm-s-guri.CodeMirror { background: #151925; color: #f8f8f2; }
+.cm-s-guri div.CodeMirror-selected { background: #242844; }
+.cm-s-guri .CodeMirror-line::selection, .cm-s-guri .CodeMirror-line > span::selection, .cm-s-guri .CodeMirror-line > span > span::selection { background: rgba(73, 72, 62, .99); }
+.cm-s-guri .CodeMirror-line::-moz-selection, .cm-s-guri .CodeMirror-line > span::-moz-selection, .cm-s-guri .CodeMirror-line > span > span::-moz-selection { background: rgba(73, 72, 62, .99); }
+.cm-s-guri .CodeMirror-gutters { background: #1C2125; border-right: 0px; }
+.cm-s-guri .CodeMirror-guttermarker { color: white; }
+.cm-s-guri .CodeMirror-guttermarker-subtle { color: #d0d0d0; }
+.cm-s-guri .CodeMirror-linenumber { color: #d0d0d0; }
+.cm-s-guri .CodeMirror-cursor { border-left: 1px solid #f8f8f0; }
+
+.cm-s-guri span.cm-comment { color: #75715e; }
+.cm-s-guri span.cm-atom { color: #ae81ff; }
+.cm-s-guri span.cm-number { color: #ae81ff; }
+
+.cm-s-guri span.cm-comment.cm-attribute { color: #97b757; }
+.cm-s-guri span.cm-comment.cm-def { color: #bc9262; }
+.cm-s-guri span.cm-comment.cm-tag { color: #bc6283; }
+.cm-s-guri span.cm-comment.cm-type { color: #5998a6; }
+
+.cm-s-guri span.cm-property, .cm-s-guri span.cm-attribute { color: #1bcf7b; }
+.cm-s-guri span.cm-keyword { color: #f92672; }
+.cm-s-guri span.cm-builtin { color: #66d9ef; }
+.cm-s-guri span.cm-string { color: #e6db74; }
+
+.cm-s-guri span.cm-variable { color: #f8f8f2; }
+.cm-s-guri span.cm-variable-2 { color: #9effff; }
+.cm-s-guri span.cm-variable-3, .cm-s-guri span.cm-type { color: #66d9ef; }
+.cm-s-guri span.cm-def { color: #ee9624; }
+.cm-s-guri span.cm-bracket { color: #f8f8f2; }
+.cm-s-guri span.cm-tag { color: #f92672; }
+.cm-s-guri span.cm-header { color: #ae81ff; }
+.cm-s-guri span.cm-link { color: #ae81ff; }
+.cm-s-guri span.cm-error { background: #f92672; color: #f8f8f0; }
+
+.cm-s-guri .CodeMirror-activeline-background { background: #1C2125; }
+.cm-s-guri .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}

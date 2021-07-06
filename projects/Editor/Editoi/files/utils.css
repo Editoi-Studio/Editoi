@@ -1,0 +1,38 @@
+.border{
+  border: 5px solid var(--blue-3)
+}
+
+.noSelect {
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.center-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+ 
+.dark{
+  background: var(--dark);
+}
+
+.over:hover { 
+  background: var(--blue-3) !important;
+}
+
+.none{
+  display: none;
+}

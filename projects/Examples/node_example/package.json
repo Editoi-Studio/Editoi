@@ -1,0 +1,42 @@
+{
+    "name": "node_example",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {},
+    "author": "Gurigraphics",
+    "license": "ISC",
+    "dependencies": {},
+    "plurality": {
+        "files": [
+            "file.js",
+            "run.bat"
+        ],
+        "modules": [],
+        "p0": {
+            "file.js": [
+                "require.js",
+                "read.js",
+                "parse.js",
+                "main.js"
+            ],
+            "run.bat": []
+        },
+        "p1": {
+            "require.js": [],
+            "read.js": [],
+            "main.js": [],
+            "parse.js": []
+        },
+        "p2": {},
+        "p3": {},
+        "all": {
+            "file.js": 0,
+            "run.bat": 1,
+            "require.js": 1,
+            "read.js": 1,
+            "main.js": 1,
+            "parse.js": 1
+        }
+    }
+}

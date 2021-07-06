@@ -1,0 +1,34 @@
+{
+    "name": "nasm_example",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {},
+    "author": "Gurigraphics",
+    "license": "ISC",
+    "dependencies": {},
+    "plurality": {
+        "files": [
+            "file.asm",
+            "run.bat"
+        ],
+        "modules": [],
+        "p0": {
+            "file.asm": [
+                "main.asm"
+            ],
+            "run.bat": []
+        },
+        "p1": {
+            "main.asm": []
+        },
+        "p2": {},
+        "p3": {},
+        "all": {
+            "file.asm": 1,
+            "run.bat": 1,
+            "main.asm": 1
+        },
+        "fileDisabled": []
+    }
+}

@@ -1,0 +1,45 @@
+{
+    "name": "csharp_example",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {},
+    "author": "Gurigraphics",
+    "license": "ISC",
+    "dependencies": {},
+    "plurality": {
+        "files": [
+            "file.cs",
+            "run.bat"
+        ],
+        "modules": [],
+        "p0": {
+            "file.cs": [
+                "using.cs",
+                "Hello.cs",
+                "Read.cs",
+                "Main.cs",
+                "Window.cs"
+            ],
+            "run.bat": []
+        },
+        "p1": {
+            "Hello.cs": [],
+            "Read.cs": [],
+            "Main.cs": [],
+            "using.cs": [],
+            "Window.cs": []
+        },
+        "p2": {},
+        "p3": {},
+        "all": {
+            "file.cs": 0,
+            "run.bat": 1,
+            "Hello.cs": 1,
+            "Read.cs": 1,
+            "Main.cs": 1,
+            "using.cs": 1,
+            "Window.cs": 1
+        }
+    }
+}

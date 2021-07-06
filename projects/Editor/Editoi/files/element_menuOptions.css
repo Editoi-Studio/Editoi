@@ -1,0 +1,17 @@
+#icon_menuOptions{
+  color: white;
+  font-size: 22px;
+  display: flex;
+  margin-right: auto;
+  float: right !important;
+  cursor: pointer;
+  margin-left: 12px;
+}
+
+#icon_menuOptions:hover{
+  color: #389eec;
+}
+
+#icon_menuOptions:active{
+  color: #ecc038;
+}

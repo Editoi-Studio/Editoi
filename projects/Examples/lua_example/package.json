@@ -1,0 +1,39 @@
+{
+    "name": "lua_example",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {},
+    "author": "Gurigraphics",
+    "license": "ISC",
+    "dependencies": {},
+    "plurality": {
+        "files": [
+            "file.lua",
+            "run.bat"
+        ],
+        "modules": [],
+        "p0": {
+            "file.lua": [
+                "hello.lua",
+                "read.lua",
+                "main.lua"
+            ],
+            "run.bat": []
+        },
+        "p1": {
+            "main.lua": [],
+            "hello.lua": [],
+            "read.lua": []
+        },
+        "p2": {},
+        "p3": {},
+        "all": {
+            "file.lua": 0,
+            "run.bat": 1,
+            "main.lua": 1,
+            "hello.lua": 1,
+            "read.lua": 1
+        }
+    }
+}

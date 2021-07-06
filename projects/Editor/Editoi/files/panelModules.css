@@ -1,0 +1,24 @@
+.panelModules{
+  height: 100%;
+  background: var(--blue-2);
+  
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 20px 29px calc( 100vh - 138px);  
+}
+
+.panelModules-top{
+   color: var(--white); 
+   font-size: 12px; 
+   padding: 6px;
+}
+
+.panelModules-middle{
+  margin: 1px;
+}
+
+#box0{	
+  max-height: calc( 100vh - 140px ); 	
+  min-height: calc( 100vh - 140px ); 	
+  max-width: 180px;
+}

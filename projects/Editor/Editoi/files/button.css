@@ -1,0 +1,22 @@
+.element_button{  
+  width: 64px;
+  height: 22px;
+  background: var(--dark);  
+  float: left;
+  color: white;
+  margin-left: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 4px;
+  font-size: 12px;  
+}
+ 
+.element_button:hover{
+  background: var(--blue-3); 
+  cursor: pointer;
+}
+
+.element_button:active{
+  position:relative;
+  top:1px;
+}

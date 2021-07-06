@@ -1,0 +1,39 @@
+{
+    "name": "python_example",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {},
+    "author": "Gurigraphics",
+    "license": "ISC",
+    "dependencies": {},
+    "plurality": {
+        "files": [
+            "file.py",
+            "run.bat"
+        ],
+        "modules": [],
+        "p0": {
+            "run.bat": [],
+            "file.py": [
+                "hello.py",
+                "reading.py",
+                "main.py"
+            ]
+        },
+        "p1": {
+            "hello.py": [],
+            "reading.py": [],
+            "main.py": []
+        },
+        "p2": {},
+        "p3": {},
+        "all": {
+            "run.bat": 1,
+            "file.py": 0,
+            "hello.py": 1,
+            "reading.py": 1,
+            "main.py": 1
+        }
+    }
+}

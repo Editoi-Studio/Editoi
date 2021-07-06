@@ -1,0 +1,42 @@
+{
+    "name": "cplus_example",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {},
+    "author": "Gurigraphics",
+    "license": "ISC",
+    "dependencies": {},
+    "plurality": {
+        "files": [
+            "file.cpp",
+            "run.bat"
+        ],
+        "modules": [],
+        "p0": {
+            "run.bat": [],
+            "file.cpp": [
+                "includes.cpp",
+                "hello.cpp",
+                "cin.cpp",
+                "main.cpp"
+            ]
+        },
+        "p1": {
+            "includes.cpp": [],
+            "main.cpp": [],
+            "hello.cpp": [],
+            "cin.cpp": []
+        },
+        "p2": {},
+        "p3": {},
+        "all": {
+            "run.bat": 1,
+            "file.cpp": 0,
+            "includes.cpp": 1,
+            "main.cpp": 1,
+            "hello.cpp": 1,
+            "cin.cpp": 1
+        }
+    }
+}

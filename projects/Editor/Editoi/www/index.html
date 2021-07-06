@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <meta name="language" content="pt-br">
+    <meta name="theme-color" content="black">  
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Gurigraphics">
+    <meta name="description" content="Editoi">
+    <meta name="keywords" content="editoi, editor">
+
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <noscript> JavaScript is required for loading the page. </noscript>
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- icon in the highest resolution we need it for -->
+    <link rel="icon" href="images/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" href="images/android-chrome-256x256.png" sizes="256x256">
+    <link rel="icon" href="images/android-chrome-512x512.png" sizes="512x512">    
+
+    <!-- reuse same icon for Safari -->
+    <link rel="apple-touch-icon" href="images/ios-icon.png">
+
+    <!-- multiple icons for IE -->
+    <meta name="msapplication-square310x310logo" content="images/mstile-310x310.png">
+    <meta name="msapplication-square70x70logo" content="images/mstile-70x70.png">
+    <meta name="msapplication-square150x150logo" content="images/mstile-150x150.png">
+    <meta name="msapplication-wide310x150logo" content="images/mstile-310x150.png">
+    <meta name="msapplication-square144x144logo" content="images/mstile-144x144.png">
+    <meta name="msapplication-square310x310logo" content="images/mstile-310x310.png">
+
+    <link defer rel="manifest" href="manifest.json">
+
+    <title>Editoi 7.0</title>
+
+
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/lib/codemirror.css" />    
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/addon/hint/show-hint.css">
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/addon/fold/foldgutter.css">
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/addon/dialog/dialog.css">
+
+    
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/3024-day.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/3024-night.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/abbott.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/abcdef.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/ambiance-mobile.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/ambiance.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/ayu-dark.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/ayu-mirage.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/base16-dark.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/base16-light.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/bespin.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/blackboard.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/cobalt.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/colorforth.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/darcula.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/dir.txt" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/dracula.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/duotone-dark.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/duotone-light.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/eclipse.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/elegant.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/erlang-dark.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/gruvbox-dark.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/guri.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/hopscotch.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/icecoder.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/idea.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/isotope.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/lesser-dark.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/liquibyte.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/lucario.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/material-darker.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/material-ocean.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/material-palenight.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/material.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/mbo.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/mdn-like.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/midnight.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/monokai.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/moxer.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/neat.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/neo.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/night.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/nord.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/oceanic-next.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/panda-syntax.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/paraiso-dark.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/paraiso-light.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/pastel-on-dark.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/print.txt" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/railscasts.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/rubyblue.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/seti.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/shadowfox.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/solarized.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/ssms.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/the-matrix.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/tomorrow-night-bright.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/tomorrow-night-eighties.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/ttcn.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/twilight.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/vibrant-ink.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/xq-dark.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/xq-light.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/yeti.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/yonce.css" />
+    <link rel="stylesheet" href="../../../../editor/node_modules/codemirror/theme/zenburn.css" />
+
+
+
+    <link rel="icon" type="image/png" sizes="32x32" href="images/editoico.png">
+
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+
+    <link defer rel='stylesheet' href='style.css'>
+  </head>
+  <body>
+
+<div id="root" onkeypress="EVENT.keypress(event)"> 
+  <div id="loader" class="center"> <div class="loader"></div> </div>
+</div>
+
+ <script src="../../../../editor/node_modules/marked/marked.min.js"></script>
+
+<!-- codemirror content -->
+ 
+    <script src="../../../../editor/node_modules/codemirror/lib/codemirror.js"></script>
+
+    <script src="../../../../editor/node_modules/codemirror/addon/comment/comment.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/edit/matchbrackets.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/edit/matchtags.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/edit/closebrackets.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/edit/closetag.js"></script>
+
+    <script src="../../../../editor/node_modules/codemirror/addon/fold/foldcode.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/fold/foldgutter.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/fold/brace-fold.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/fold/xml-fold.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/fold/indent-fold.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/fold/markdown-fold.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/fold/comment-fold.js"></script>
+
+    <script src="../../../../editor/node_modules/codemirror/addon/hint/show-hint.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/hint/javascript-hint.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/hint/xml-hint.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/hint/html-hint.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/hint/css-hint.js"></script>
+
+    <script src="../../../../editor/node_modules/codemirror/addon/mode/loadmode.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/selection/active-line.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/search/searchcursor.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/search/search.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/search/jump-to-line.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/addon/dialog/dialog.js"></script>    
+    <script src="../../../../editor/node_modules/codemirror/addon/mode/simple.js"></script> 
+  
+<!-- codemirror language highlight  -->
+    <script src="../../../../editor/node_modules/codemirror/mode/javascript/javascript.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/mode/css/css.js"></script> 
+    <script src="../../../../editor/node_modules/codemirror/mode/htmlmixed/htmlmixed.js"></script> 
+    <script src="../../../../editor/node_modules/codemirror/mode/xml/xml.js"></script>  
+    <script src="../../../../editor/node_modules/codemirror/mode/clike/clike.js"></script> 
+    <script src="../../../../editor/node_modules/codemirror/mode/lua/lua.js"></script> 
+    <script src="../../../../editor/node_modules/codemirror/mode/haxe/haxe.js"></script> 
+    <script src="../../../../editor/node_modules/codemirror/mode/gas/gas.js"></script>  
+    <script src="../../../../editor/node_modules/codemirror/mode/go/go.js"></script>  
+    <script src="../../../../editor/node_modules/codemirror/mode/shell/shell.js"></script> 
+    <script src="../../../../editor/node_modules/codemirror/mode/powershell/powershell.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/mode/rust/rust.js"></script>
+  
+ 
+<!-- <script src="../node_modules/codemirror/mode/elixir/codemirror-mode-elixir.js"></script>   -->
+
+    <script src="../../../../editor/node_modules/codemirror/mode/python/python.js"></script> 
+    <script src="../../../../editor/node_modules/codemirror/mode/ruby/ruby.js"></script> 
+    <script src="../../../../editor/node_modules/codemirror/mode/vue/vue.js"></script>
+    <script src="../../../../editor/node_modules/codemirror/mode/markdown/markdown.js"></script>
+
+
+<!-- Insert this line above script imports  --> 
+<script>
+  if (typeof module === 'object') {window.module = module; module = undefined;}
+</script>
+<!-- normal script imports etc  -->
+
+<script src="../../../../editor/node_modules/jquery-ui-bundle/external/jquery/jquery.js"></script>
+<script src="../../../../editor/node_modules/jquery-ui-bundle/jquery-ui.min.js"></script>
+
+<!-- Insert this line after script imports  -->
+<script>
+  if (window.module) module = window.module;
+</script>   
+ 
+<script defer src='main.js'></script>
+
+</body>
+</html>

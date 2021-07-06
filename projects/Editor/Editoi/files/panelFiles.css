@@ -1,0 +1,33 @@
+.panelFiles{
+  
+  background: var(--blue-2);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 20px 29px 1fr;   
+}
+
+
+.kanbanGrid4{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr !important;
+  grid-template-rows: 1fr; 
+}
+
+.kanbanGrid3{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr !important;
+  grid-template-rows: 1fr; 
+}
+
+.kanbanGrid2{
+  display: grid;
+  grid-template-columns: 1fr 1fr !important;
+  grid-template-rows: 1fr; 
+}
+
+.kanbanGrid1{
+  display: grid;
+  grid-template-columns: 1fr !important;
+  grid-template-rows: 0; 
+}

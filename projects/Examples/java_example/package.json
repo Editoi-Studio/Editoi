@@ -1,0 +1,46 @@
+{
+    "name": "java_example",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {},
+    "author": "Gurigraphics",
+    "license": "ISC",
+    "dependencies": {},
+    "plurality": {
+        "files": [
+            "file.java",
+            "run.bat",
+            "createJar.bat"
+        ],
+        "modules": [],
+        "p0": {
+            "run.bat": [],
+            "file.java": [
+                "imports.java",
+                "hello.java",
+                "reading.java",
+                "main.java"
+            ],
+            "createJar.bat": []
+        },
+        "p1": {
+            "main.java": [],
+            "imports.java": [],
+            "hello.java": [],
+            "reading.java": []
+        },
+        "p2": {},
+        "p3": {},
+        "all": {
+            "run.bat": 1,
+            "file.java": 0,
+            "main.java": 1,
+            "imports.java": 1,
+            "hello.java": 1,
+            "reading.java": 1,
+            "createJar.bat": 1
+        },
+        "fileDisabled": []
+    }
+}

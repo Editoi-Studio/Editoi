@@ -1,0 +1,42 @@
+{
+    "name": "c_example",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {},
+    "author": "Gurigraphics",
+    "license": "ISC",
+    "dependencies": {},
+    "plurality": {
+        "files": [
+            "file.c",
+            "run.bat"
+        ],
+        "modules": [],
+        "p0": {
+            "run.bat": [],
+            "file.c": [
+                "includes.c",
+                "hello.c",
+                "reading.c",
+                "main.c"
+            ]
+        },
+        "p1": {
+            "includes.c": [],
+            "main.c": [],
+            "hello.c": [],
+            "reading.c": []
+        },
+        "p2": {},
+        "p3": {},
+        "all": {
+            "run.bat": 1,
+            "file.c": 0,
+            "includes.c": 1,
+            "main.c": 1,
+            "hello.c": 1,
+            "reading.c": 1
+        }
+    }
+}
