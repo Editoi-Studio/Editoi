@@ -16,30 +16,21 @@ Editoi | Modular Code Editor
 ## Install dependences
 
 ```
-Yarn start
+npm install
+```
+Build Windows
+```js
+npm run win
+```
+Build Linux
+```js
+npm run linux
+```
+Build Mac
+```js
+npm run mac
 ```
 
-## Build Windows 
-
-```
-Yarn dist
-```
-    
-## Build Linux
-
-Change package.json script dist options
-    
-```
- "dist": "build --tasks linux-x64 --mirror https://dl.nwjs.io/ ."
-```
-
-## Build Mac
-
-Change package.json script dist options
-    
-```
- "dist": "build --tasks mac-x64 --mirror https://dl.nwjs.io/ ."
-```
 
 ## Licence
     
