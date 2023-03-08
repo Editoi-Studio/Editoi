@@ -20,8 +20,11 @@
         }
     },
     "scripts": {
-        "start": "npm install && cd editor && npm install",
-        "dist": "build --tasks win-x64 --mirror https://dl.nwjs.io/ ."
+        "start": "npm install && cd editor && npm install",     
+        "win": "build --tasks win-x64 --mirror https://dl.nwjs.io/ .",
+        "linux": "build --tasks linux-x64 --mirror https://dl.nwjs.io/ .",
+        "mac": "build --tasks mac-x64 --mirror https://dl.nwjs.io/ .",
+        "production": "change nwFlavor to normal or add --disable-devtools "
     },
     "devDependencies": {
         "nwjs-builder-phoenix": "^1.15.0"
