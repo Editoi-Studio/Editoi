@@ -16,22 +16,10 @@ Editoi | Modular Code Editor
 ## Install dependences
 
 ```
+cd editor
 npm install
 ```
-Build Windows
-```js
-npm run win
-```
-Build Linux
-```js
-npm run linux
-```
-Build Mac
-```js
-npm run mac
-```
-
 
 ## Licence
     
-MIT. Copyright (c) 2021 by Gurigraphics
+MIT. Copyright (c) 2023 by Gurigraphics

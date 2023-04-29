@@ -37,9 +37,17 @@
     <meta name="msapplication-square144x144logo" content="images/mstile-144x144.png">
     <meta name="msapplication-square310x310logo" content="images/mstile-310x310.png">
  
-    <link defer rel="manifest" href="manifest.json">
+    
+    <link rel="manifest" src="manifest.json" crossorigin="use-credentials" />
  
     <title>Editoi 1.0.1</title>
+
+<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/default.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/base16/materia.min.css" integrity="sha512-OekoFypwczt07fw6kJhvvRo4rbmyK/o6fh4NTw7tKeSPO9SXRZH+2sln1h51KPj0zSBA6/WUiW/eJog2YVn9lA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" href="src/markdown.css">
+<link rel="stylesheet" href="src/markdown-dark.css">
 
  
         
@@ -188,6 +196,31 @@
     <script src="./node_modules/codemirror/mode/vue/vue.js"></script>
     <script src="./node_modules/codemirror/mode/markdown/markdown.js"></script>
  
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js" integrity="sha512-SYfDUYPg5xspsG6OOpXU366G8SZsdHOhqk/icdrYJ2E/WKZxPxze7d2HD3AyXpT7U22PZ5y74xRpqZ6A2bJ+kQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script type="module">
+import hljs from 'https://unpkg.com/@highlightjs/cdn-assets@11.8.0/es/highlight.min.js';
+window.hljs = hljs 
+window.md = window.markdownit({
+  highlight: function (str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return '<pre class="hljs"><code>' +
+               hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
+               '</code></pre>';
+      } catch (__) {}
+    }
+
+    return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
+  },
+  linkify: true, 
+  typographer:  true,
+});
+
+</script>
 
 <!-- Insert this line above script imports  --> 
 <script>

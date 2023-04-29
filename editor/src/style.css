@@ -144,30 +144,15 @@ body{
   border: 1px solid #0b0b0c; 
 }
 
-
-::marker {
-  color: var(--roxo);
-  font-size: 1.2em;
-}
-
 a{
   color: var(--roxo);
 }
 
-p{
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
 h1{
-  margin-bottom: 15px;
-  margin-top: 15px;
   color: var(--yellow-2);
 }
 
 h2{
-  margin-bottom: 15px;
-  margin-top: 15px;
   color: var(--blue-mark);
 }
 
@@ -178,50 +163,7 @@ h2{
   padding-left: 50px
 }
 
-
-em{
-  font-style: italic;
-}
-
-strong{
-  font-weight: bold;
-  color: var(--yellow-2);
-}
-
-code{
-  background: var(--brown);
-  color: #151925;
-  padding: 4px;
-  border-radius: 8px;
-  max-width: 100%;
-}
-
-ul{
-  margin-left: 44px;
-}
-
-ol{
-  margin-left: 54px;
-}
-
-p{
-  line-height: 28px
-}
-
-pre{
-  margin: 14px;
-  max-width: 100%;
-}
-
-blockquote{
-  margin: 24px;
-  background: #1f2238;
-  padding: 10px;
-  border-radius: 8px;
-  padding-left: 14px;
-  padding-right: 14px;
-}
-
+ 
 .element_button{  
   width: 64px;
   height: 22px;
@@ -691,9 +633,9 @@ input:checked + .slider:before {
   margin: 1px;
 }
 
-#box0{	
-  max-height: calc( 100vh - 140px ); 	
-  min-height: calc( 100vh - 140px ); 	
+#box0{  
+  max-height: calc( 100vh - 140px );  
+  min-height: calc( 100vh - 140px );  
   max-width: 180px;
 }
 

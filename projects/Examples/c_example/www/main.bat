@@ -8,4 +8,3 @@ timeout 3
 if exist main.exe (main.exe) else (timeout 3 && goto wait)
 pause
 goto start
-

@@ -218,40 +218,38 @@ FN.removeTagNormal = function( content ){
 let SERVER = {}
 SERVER.files = {}
 
-var fs = require("fs")
-var exec = require('child_process').execSync
-const path = require('path')
+var fs = {} //require("fs")
+var exec = {} // require('child_process').execSync
+const path = {} // require('path')
 
 
 
-SERVER.files.getFile = ( dir, file ) => {
-  return new Promise(( resolve, reject ) => {
-    var text = undefined
+SERVER.files.getFile = async( dir, file ) => { 
     var filename = dir+"/"+file
-    if(!fs.existsSync( filename )) {
-      
-      resolve("")
-
-    }else{
-      text = fs.readFileSync(filename,'utf8')
-      text = text + "\n"
-    }
-    resolve(text)
-  })
-}
+    var text = await read( filename )  
+    if(text == 'Open file error') console.log('Open file error')
+    else if(text) return atob( text ) 
+    return ""   
+} //await SERVER.files.getFile("projects", "data.txt")
 
 
-SERVER.files.getFolders = ( dir ) => {
-  return new Promise(( resolve, reject ) => {
-    DATA.folders = ""
-    fs.readdir( dir, ( err, files ) => { 
-     DATA.folders = files.filter( item => !item.includes(".tmp") )
-     resolve( DATA.folders )    
-    })
-  })
+SERVER.files.getFolders = async( dir ) => {
+
+  var dir_list = await getDirs( dir )
+
+  if(dir_list == 'folder no exist'){
+   console.log('folder no exist')
+   return ""   
+  }
+
+  var no_empty = dir_list.split(",").filter(n => n)
+  DATA.folders = no_empty.filter( item => !item.includes(".tmp") )
+
+  return DATA.folders
 }
 
 SERVER.files.createFile = ( directory, filename, content ) => {
+  
   return new Promise(( resolve, reject ) => {
     if( filename && filename ){
       var dir = directory+'/'+filename
@@ -271,25 +269,30 @@ SERVER.files.createFile = ( directory, filename, content ) => {
         }
       }
 
-      if( !fs.existsSync( directory ) ) FN.createDirRecursively(directory)
+      FN.createDirRecursively(directory)
              
       content = content.replace(/^\s+|\s+$/g, '')
-      fs.writeFile( dir, content, (err) => {
-        if ( err ) throw err
-        resolve( dir )
-      })
+
+      var result = write(dir, content)
+      if( result == 'error' ) console.log("Write file error")
+      resolve(result)
+
     }
   })
+   
 }
 
-FN.createDirRecursively = (dir) => {
-  if(!fs.existsSync(dir)) {        
-    FN.createDirRecursively(path.join(dir, ".."))
-    fs.mkdirSync(dir)
+FN.createDirRecursively = async(dir) => {
+
+  if( await exists_dir(dir) == 'false' ){
+    var folders = dir.split("/").join("\\")
+    await system(`mkdir ${folders}`)
+    return "ok"
   }
 }
 
 SERVER.files.createIcon = ( dir ) => {
+  /*
 
   var url = dir+"/www"
 
@@ -298,24 +301,30 @@ SERVER.files.createIcon = ( dir ) => {
   if ( !fs.existsSync( url ) ) fs.mkdirSync( url )
 
   SERVER.files.pastFile(url+"/favicon.ico", data)
+*/
 }
 
 
 
-SERVER.files.copyFile = ( file ) => {
+SERVER.files.copyFile = async( file ) => {
 
-  return fs.readFileSync( file )
+  return await SERVER.files.getFileContents( file )
+
+ // return fs.readFileSync( file )
 }
 
 
 
 SERVER.files.pastFile = ( file, data ) => {
 
-  fs.writeFileSync( file, data)
+  write(file, data)
+
+ // fs.writeFileSync( file, data)
 }
 
 
 SERVER.files.generateFileServer = () => {
+  /*
 
   var filesUrl = `/${ DATA.directory }/${ DATA.folderSelected }/${ DATA.project.name }/www`
 
@@ -345,31 +354,21 @@ SERVER.files.generateFileServer = () => {
     if ( err ) throw err;
   });
   return 0
+  */
 }
 
 
-SERVER.files.generate = () => {
 
+SERVER.files.generate = () => {
+ 
   promise.then( ( val ) => {
 
     var dir = `${ DATA.directory }/${ DATA.folderSelected }/${ DATA.project.name }/www`
 
-   // SERVER.files.createFile( dir,  "index.html", DATA.html )
-/*
-    if( DATA.html ) SERVER.files.createFile( dir, "index.html", DATA.html );
-    if( DATA.css )  SERVER.files.createFile( dir, "style.css", DATA.css );
-    if( DATA.js )   SERVER.files.createFile( dir, "app.js", DATA.js );
-    if( DATA.txt )  SERVER.files.createFile( dir, "text.txt", DATA.txt );
- */
+
     if( DATA.archives ){
       
-      for(let extension in DATA.archives){
-        let content = DATA.archives[extension]  
-        let fileName = "main."+extension+""
-        if(extension == "html") fileName = "index.html"
-        else if(extension == "css") fileName = "style.css"
-        SERVER.files.createFile( dir, fileName, content )
-      }
+      
             
     } 
     
@@ -401,21 +400,23 @@ SERVER.files.generate = () => {
 
   }).then( ( val ) => {
     setTimeout( () => {
-      /*
-      if(Data.filesSelected){
-        if( Data.filesSelected.includes(".cpp") ){
-          compileCpp()
-        }else if( Data.filesSelected.includes(".sh") ){
-          compileSh()
-        }else View.openWindow();
-      }else View.openWindow();
-      */
+     
+      var dir = `${ DATA.directory }/${ DATA.folderSelected }/${ DATA.project.name }/www`
+        
+      for(let extension in DATA.archives){
+        let content = DATA.archives[extension]  
+        let fileName = "main."+extension+""
+        if(extension == "html") {fileName = "index.html" }
+        else if(extension == "css") fileName = "style.css"
+        SERVER.files.createFile( dir, fileName, content )
+      }
 
-      if( !DATA.run ) FN.project.openWindow()
+
+      if( DATA.archives.html ) FN.project.openWindow()  //!DATA.run
       else{
         
-        var dir = `${ DATA.directory }\\${ DATA.folderSelected }\\${ DATA.project.name }\\www`    
-        require('child_process').exec(`start "" "${dir}"`);
+      //  var dir = `${ DATA.directory }\\${ DATA.folderSelected }\\${ DATA.project.name }\\www`    
+       // require('child_process').exec(`start "" "${dir}"`);
 
        // SERVER.files.execRun()
       }
@@ -426,8 +427,9 @@ SERVER.files.generate = () => {
   // run
 }
 
-SERVER.files.execRun = () => {
 
+SERVER.files.execRun = () => {
+/*
   log("exec")
 
   var URL = process.cwd().split("\\").join("/") + "/projects/" +
@@ -464,12 +466,12 @@ SERVER.files.execRun = () => {
     }
 
   FN.alert.show( "Project Compiled!" )
-
+*/
 }
 
 
 SERVER.files.execCMD = () => {
-  
+  /*
   DATA.prog = DATA.run.split("cmd ")[1]
   DATA.commands = DATA.prog.split(" ")
   DATA.call = DATA.commands[0]
@@ -488,7 +490,7 @@ SERVER.files.execCMD = () => {
 
     console.log(data.toString('utf8'));
   })
-
+*/
 }
 
 
@@ -500,11 +502,12 @@ SERVER.files.getFileContents = ( value ) => {
 
     if( content ) SERVER.files.getFileTypes( content, value )    
   })
+
 }
 
 
 SERVER.files.getFileTypes = ( content, fileName ) => {
-
+   
   if( FN.includes.disable( content ) ){
 
     if( DATA.fileDisabled == undefined ) DATA.fileDisabled = []
@@ -573,6 +576,7 @@ SERVER.files.getFileTypes = ( content, fileName ) => {
     if( DATA.only[extension] ) DATA.archives[extension] = DATA.only[extension] 
     else DATA.archives[extension] = DATA.archives[extension] + ( content + "\n" )
   }
+ 
 }
 
 SERVER.files.getFileHTML = ( content, extension ) => {
@@ -589,6 +593,7 @@ SERVER.files.getFileCSS = ( content, extension ) => {
   }
   if( DATA.only[extension] ) DATA.css = DATA.only[extension]
   else DATA.css = DATA.css + ( content + "\n" )
+
 }
 
 SERVER.files.getFileJS = ( content, extension ) => {
@@ -599,53 +604,17 @@ SERVER.files.getFileJS = ( content, extension ) => {
   }
   if( DATA.only[extension] ) DATA.js = DATA.only[extension]
   else DATA.js = DATA.js + ( content + "\n" )
+
 }
 
 SERVER.files.getFileTXT = ( content, extension ) => {
+
   if( DATA.only[extension] ) DATA.txt = DATA.only[extension]
   else DATA.txt = DATA.txt + ( content + "\r\n" )
-}
-/*
- 
-SERVER.files.getFileTypes = ( content, value ) => {
-
-  if( SERVER.files.includeDisable( content ) ){
-
-    if( DATA.fileDisabled == undefined ) DATA.fileDisabled = []
-
-    if( !DATA.fileDisabled.includes(value) ) {
-
-      DATA.fileDisabled.push( value )
-    }
-    return 0
-  }
   
-  let s = value.split(".")
-  let length = s.length
-  let extension = s[length-1]
-  
-  if( SERVER.files.includeOnly( content ) ){
-      
-    DATA.only[extension] = content
-  }
-  
-  SERVER.files.getFileType( content, extension )
-
 }
 
-
-SERVER.files.getFileType = ( content, extension ) => {
-  
-  if( SERVER.files.includesImport( content ) ){
-
-    content = SERVER.files.regexImport( content )
-  }
-  if( DATA.only[extension] ) DATA[extension] = DATA.only[extension]
-  else DATA[extension] = DATA[extension] + ( content + "\n" )
-}
- */
-
-SERVER.files.regexImport = ( content ) => {
+SERVER.files.regexImport = async( content ) => {
 
   if( FN.includes.add( content ) ){
 
@@ -657,10 +626,7 @@ SERVER.files.regexImport = ( content ) => {
       for( index in array ){
          files.push( array[ index ].split(`"`)[1] )
       }
-       /*
-      var cut = files[files.length-1]+`")`
-      var codeBottom = content.split(cut)[1]
-      */
+  
       var cut = content.split(`\")\n`)
 
       for(let x =0; x<files.length; x++){
@@ -671,10 +637,15 @@ SERVER.files.regexImport = ( content ) => {
           
       for( index in files ){
         var filename = files[ index ]
-        var dir = `${ DATA.directory }/`
+        var dir = `${ DATA.directory }`
    
-        if( filename && filename.includes("."))
-         code += fs.readFileSync(dir+filename,'utf8')
+        if( filename && filename.includes(".")){
+          var name = dir+filename
+          var result = await SERVER.files.getFile( dir, name ) 
+          code += result
+        }
+
+         code += await SERVER.files.getFile( dir, filename ) 
       }
 
       content = code + "\n" + codeBottom
@@ -685,7 +656,7 @@ SERVER.files.regexImport = ( content ) => {
 
 
 SERVER.run = async() => {
-  
+  /*
   await SERVER.files.generateFileServer()
   const { exec } = require('child_process');
   exec('node server.js', { detached: true, cwd: "./" }, (err, stdout, stderr) => {  //, cwd: ""
@@ -699,13 +670,13 @@ SERVER.run = async() => {
     }
 
   })
-  
+  */
   log("Running server -> localhost:9001")
 }
 
 
 SERVER.close = () => {
-    
+    /*
   var request = new XMLHttpRequest()
   request.open('GET', 'http://localhost:9001/exit', true)
 
@@ -714,62 +685,12 @@ SERVER.close = () => {
   }
   request.send()
   log("Stop server -> localhost:9001")
+  */
 }
 
 
 SERVER.project = {}
-
-
-/*
-SERVER.project.compile = () => {
-
-  var project = []
-  var Data = DATA.project.plurality
-
-  for(let index0 in Data.files ){
-
-    if( DATA.fileDisabled == undefined || !DATA.fileDisabled.includes( Data.files[ index0 ] ) ){
-
-      project.push( Data.files[ index0 ] )
-
-      for(let index in Data.p0[ Data.files[ index0 ] ] ){
-        let fileName = Data.p0[ Data.files[ index ] ][ index ]
-        if( DATA.fileDisabled && DATA.fileDisabled.includes( fileName ) ) 
-          return project.push( fileName )
-
-        for(let index2 in Data.p1[ fileName ] ){
-          let fileName2 = Data.p1[ fileName ][index2]
-          if( DATA.fileDisabled && DATA.fileDisabled.includes( fileName2 ) ) 
-            return project.push( fileName2 )
-
-          for(let index3 in Data.p2[ fileName2 ] ){
-            let fileName3 = Data.p2[ fileName2 ]
-            if( DATA.fileDisabled && DATA.fileDisabled.includes( fileName3 ) ) 
-              return project.push( fileName3 )
-
-            for(let index4 in Data.p3[ fileName3 ] ){
-              let fileName4 = Data.p3[ fileName3 ]
-
-              if( DATA.fileDisabled && DATA.fileDisabled.includes( fileName4 ) ) 
-                return project.push( fileName4 )              
-            }
-          }
-        }
-      }
-    }
-  }
-
-  promise.then( ( val ) => {
-    SERVER.project.resetArchives()
-    $.each( project , ( index, value ) => {
-      SERVER.files.getFileContents( value )
-    })
-    return val
-  }).then( ( val ) => {
-    SERVER.files.generate()
-  })
-}
-*/
+ 
  
 SERVER.project.compile = () => {
 
@@ -821,7 +742,7 @@ SERVER.project.compile = () => {
     return val
   }).then( ( val ) => {
     SERVER.files.generate()
-  })
+  }) 
 }
  
 
@@ -839,7 +760,7 @@ SERVER.project.resetArchives = () => {
 SERVER.script = {}
 
 SERVER.script.run = async() => {
-  
+  /*
   console.log("Script run")
   
   var dir = `${ DATA.directory }/${ DATA.folderSelected }/${ DATA.project.name }/files/`  
@@ -856,7 +777,7 @@ SERVER.script.run = async() => {
     alert(stdout);
   });
   
- 
+ */
  
 }
 
@@ -866,7 +787,7 @@ SERVER.script.run = async() => {
 FN.menuAbout = {}
 
 FN.menuAbout.checkUpdates = () => {
-  fetch('https://raw.githubusercontent.com/Editoi-Studio/Editoi/main/version.txt')
+  fetch('https://raw.githubusercontent.com/Editoi-Studio/Editoi/main/editor/version.txt')
     .then(function(response) {
     response.text().then(function (text) {
       console.log( text )
@@ -1073,7 +994,7 @@ FN.editor.importP0 = ( code, url, fname ) => {
 
 
 FN.editor.render = () => {
-
+/*
   if(DATA.editorHide){
 
     var content = editor.getValue()
@@ -1084,7 +1005,7 @@ FN.editor.render = () => {
     }else{
       el.innerHTML = marked(content, { renderer: renderer })
     }
-  } 
+  } */
 }
 
 var renderer = new marked.Renderer()
@@ -1111,7 +1032,7 @@ FN.snippets.insert = ( lineContent ) => {
 }
 
 FN.snippets.load = () => {
-
+ 
   var file = "snippets.json"
   var dir = `${ DATA.directory }/Editor/snippets/files`
 
@@ -1765,12 +1686,40 @@ FN.project.createNew = ( projectName, template, folderSelected ) => {
   SERVER.files.createIcon( dir )
 }
 
+var server_running = false
 
-FN.project.openWindow = () => {
+FN.project.openWindow = async() => {
 
-  var dir = `${ DATA.root }${ DATA.directory }/${ DATA.folderSelected }/${ DATA.project.name }/www/index.html`
+ // var dir = `${ DATA.root }${ DATA.directory }/${ DATA.folderSelected }/${ DATA.project.name }/www/index.html`
+ /*
+ var dir = `./${ DATA.directory }/${ DATA.folderSelected }/${ DATA.project.name }/www/`
 
-  window.open( dir, DATA.project.name );
+ if(server_running == false){
+    await system(`start cmd /k "python -m http.server 8000 --directory ${dir}"`)
+    server_running = true
+ }
+
+  window.open( "http://localhost:8000", DATA.project.name );
+  */
+
+   var dir = `${ DATA.directory }/${ DATA.folderSelected }/${ DATA.project.name }/www`
+
+   var html = await SERVER.files.getFile(dir, "index.html")
+   if(html){
+    await SERVER.files.createFile("editor/server", "index.html", html) 
+   }
+
+   var css = await SERVER.files.getFile(dir, "style.css")
+   if(css){
+    await SERVER.files.createFile("editor/server", "style.css", css) 
+   }
+
+   var js = await SERVER.files.getFile(dir, "main.js")
+   if(js){
+    await SERVER.files.createFile("editor/server", "main.js", js) 
+   }
+   
+   window.open("https://assets.editor/server/index.html", DATA.project.name);
 }
 
 FN.project.openSelect = id => {
@@ -2205,6 +2154,8 @@ EVENT.menuTop.btn.render = (event) => {
   }
 
   FN.editor.render() 
+
+  get("#markdown").innerHTML = md.render( editor.getValue() )
 }
 
 EVENT.menuTop.btn.save = (event) => {  
@@ -2344,11 +2295,17 @@ EVENT.menuNew.btn.create = async() => {
   else if( DATA.folders.includes( projectName ) ) alert("This name already exist")
   else{
 
+    await FN.createDirRecursively("projects/" + DATA.folderSelected + "/" + projectName)
+    await FN.createDirRecursively("projects/" + DATA.folderSelected + "/" + projectName + "/files")
+    await FN.createDirRecursively("projects/" + DATA.folderSelected + "/" + projectName + "/www")
+
     var template = await FN.project.templateJson( projectName, version, author, license, description )
 
     DATA.templateOpen = JSON.parse( template )
 
-    await FN.project.createNew( projectName, template, folder )
+    //await FN.project.createNew( projectName, template, folder )
+
+    await FN.project.createNew( projectName, JSON.stringify(DATA.templateOpen), folder )
 
    // setTimeout(function(){            
 
@@ -2809,7 +2766,7 @@ ELEMENT.slider = (ev) => {
   </label>    
   `
  
-  return template
+  return ""//template
 }
 
 
@@ -3329,7 +3286,7 @@ TEMPLATE.panelEditor = () => {
   let template = gg({
     class: "panelEditor editor border",
     html: `
-    <div id="markdown" class="scrollbar none"></div>
+    <div id="markdown" class="markdown-body scrollbar none"></div>
     <textarea id="editor" style="display: none;"></textarea>`
   })
   return template

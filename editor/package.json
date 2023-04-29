@@ -5,8 +5,8 @@
   "main": "index.html",
   "window": {
     "icon": "images/icon-128x128.png",
-    "width": 700,
-    "height": 450,
+    "width": 1280,
+    "height": 720,
     "resizable": true,
     "title": "Editoi"
   },
@@ -15,6 +15,6 @@
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "jquery-ui-bundle": "^1.12.1-migrate",
-    "marked": "^2.0.7"
+    "marked": "^4.3.0"
   }
 }
