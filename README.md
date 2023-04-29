@@ -2,16 +2,8 @@
   
 Editoi | Modular Code Editor
 ========================    
-   
-![](https://imgur.com/MSQv6YZ.png)
-
-[https://editoi.com](https://editoi.com)
-
     
-![](https://imgur.com/N1BWGrS.png)
-        
-    
-</center> 
+![](https://imgur.com/BO1uGq3.png)
     
 ## Install dependences
 
